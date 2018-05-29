@@ -49,17 +49,4 @@ Pod::Spec.new do |s|
     ss.dependency 'SPSDKPay/Core'
   end
 
-  s.subspec 'UI' do |ss|
-    ss.frameworks = 'QuartzCore'
-    ss.source_files = 'lib/UI/*.h'
-    ss.public_header_files = 'lib/UI/*.h'
-    ss.vendored_libraries = 'lib/UI/*.a'
-    ss.dependency 'SPSDKPay/Core'
-  end
-
-  s.subspec 'WebView' do |ss|
-    ss.vendored_libraries = 'lib/Dependencies/WebView/*.a'
-    ss.dependency 'SPSDKPay/Core'
-  end
-
 end
