@@ -57,7 +57,7 @@
     
     
     
-    [SPSDKPay createPayment:@"" paymentChannel:SPSDKPaymentChannelUNinPay viewController:[UIViewController new] appURLScheme:@"supaysdk" withCompletion:^(NSDictionary *result, SPSDKPayError *error) {
+    [SPSDKPay createPayment:@"_input_charset=utf-8&body=super-pay&currency=CNY&forex_biz=FP&notify_url=func120fcw.vfinance.cn/fcw/server/CMB10101-VS.htm&out_trade_no=122222222333568541863d35&partner=2088421584120261&payment_type=1&secondary_merchant_id=1000&secondary_merchant_industry=8299&secondary_merchant_name=SU IELTS&seller_id=2088421584120261&service=mobile.securitypay.pay&sign=Vcm7rOwL1fp6Uo9HtIV+FpawlnvDu/ZCS+CsE8cf7zNFRdCM3K6pEUyzFGCJAIIzY9xIBHjHUhmAi0ivNfCLm7jaEZehoLQgQeHk0IO0fgkn4HHcXkWuesRHP9LaoXCw+4k251ppn7caJ6o09Cq94Te5mo1Qa4rsUxllNfN++aQ=&sign_type=RSA&subject=super-pay&total_fee=0.10" paymentChannel:SPSDKPaymentChannelAliPay viewController:[UIViewController new] appURLScheme:@"supaysdk" withCompletion:^(NSDictionary *result, SPSDKPayError *error) {
         NSLog(@"completion block: %@", result);
         if (error == nil && [result[@"status"] unsignedIntegerValue] == 200) {
             NSLog(@"Success");
