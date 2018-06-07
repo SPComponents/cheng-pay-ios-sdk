@@ -57,15 +57,19 @@
     
     
     
-    [SPSDKPay createPayment:@"_input_charset=utf-8&body=super-pay&currency=CNY&forex_biz=FP&notify_url=func120fcw.vfinance.cn/fcw/server/CMB10101-VS.htm&out_trade_no=122222222333568541863d35&partner=2088421584120261&payment_type=1&secondary_merchant_id=1000&secondary_merchant_industry=8299&secondary_merchant_name=SU IELTS&seller_id=2088421584120261&service=mobile.securitypay.pay&sign=Vcm7rOwL1fp6Uo9HtIV+FpawlnvDu/ZCS+CsE8cf7zNFRdCM3K6pEUyzFGCJAIIzY9xIBHjHUhmAi0ivNfCLm7jaEZehoLQgQeHk0IO0fgkn4HHcXkWuesRHP9LaoXCw+4k251ppn7caJ6o09Cq94Te5mo1Qa4rsUxllNfN++aQ=&sign_type=RSA&subject=super-pay&total_fee=0.10" paymentChannel:SPSDKPaymentChannelAliPay viewController:[UIViewController new] appURLScheme:@"supaysdk" withCompletion:^(NSDictionary *result, SPSDKPayError *error) {
-        NSLog(@"completion block: %@", result);
-        if (error == nil && [result[@"status"] unsignedIntegerValue] == 200) {
-            NSLog(@"Success");
-        } else {
-            NSLog(@"Error: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
-        }
-    }];
-    [SPSDKPay setDebugMode:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SPSDKPay createPayment:@"partner=\"2088421584120261\"&out_trade_no=\"FI222222233356854180009006\"&subject=\"super-pay\"&body=\"super-pay\"&total_fee=\"1.00\"&notify_url=\"http://server-center:8480/fcw/server/ALIPAY10101-VS.htm\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&seller_id=\"2088421584120261\"&currency=\"AUD\"&forex_biz=\"FP\"&secondary_merchant_id=\"1000\"&secondary_merchant_name=\"SU IELTS\"&secondary_merchant_industry=\"8299\"&sign=\"EbEgZWBpTCqyhrK%2B7j4pvAkj7J06O37K2x3MM9SjM%2FNLSnVZxtJFM%2Bvg0x%2B91Gk0eP3YiyV09K7tCm2Rhm1CIMRYf6BaB3zNhNSCkJtU7jKGnzCJuwhqpxtr%2Fw3bzod%2FaUi2C4ATSCLIQWL43kH3sEvWvpGAhhdbKr0sc2eOmv8%3D\"&sign_type=\"RSA\""
+ paymentChannel:SPSDKPaymentChannelAliPay viewController:[UIViewController new] appURLScheme:@"supaysdk" withCompletion:^(NSDictionary *result, SPSDKPayError *error) {
+            NSLog(@"completion block: %@", result);
+            if (error == nil && [result[@"status"] unsignedIntegerValue] == 200) {
+                NSLog(@"Success");
+            } else {
+                NSLog(@"Error: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
+            }
+            
+        }];
+        [SPSDKPay setDebugMode:YES];
+    });
     
     return YES;
 }
