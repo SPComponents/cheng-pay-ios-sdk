@@ -15,12 +15,12 @@ Pod::Spec.new do |s|
   s.source       = { :http => "https://git.rechengit.com/front-end/cheng-pay-ios-sdk",
                      :sha1 => "" }
   s.requires_arc = true
-  s.default_subspec = 'Core', 'Alipay', 'Wx'
+  s.default_subspec = 'Core', 'Alipay', 'Wx', 'UnionPay'
 
   s.subspec 'Core' do |core|
-    core.source_files = 'lib/*.h', 'lib/Dependencies/Network/*.h'
-    core.public_header_files = 'lib/*.h', 'lib/Dependencies/Network/*.h'
-    core.vendored_libraries = 'lib/*.a', 'lib/Dependencies/Network/*.a'
+    core.source_files = 'lib/*.h'
+    core.public_header_files = 'lib/*.h'
+    core.vendored_libraries = 'lib/*.a'
     core.resource = 'lib/*.bundle'
     core.frameworks = 'CFNetwork', 'SystemConfiguration', 'Security', 'CoreLocation'
     core.ios.library = 'c++', 'stdc++', 'z'
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
     ss.vendored_libraries = 'lib/Channels/Alipay/*.a'
     ss.frameworks = 'CoreMotion', 'CoreTelephony'
     ss.dependency 'SPSDKPay/Core'
-    ss.dependency 'SPSDKPayAlipaySDK', '~> 15.5'
+    ss.dependency 'PingppAlipaySDK', '~> 15.5'
   end
 
   s.subspec 'CBAlipay' do |ss|
@@ -46,7 +46,14 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Wx' do |ss|
+    ss.public_header_files = 'lib/Channels/Wx/*.h'
+    ss.vendored_libraries = 'lib/Channels/Wx/*.a'
     ss.dependency 'SPSDKPay/Core'
   end
 
+  s.subspec 'UnionPay' do |ss|
+    ss.public_header_files = 'lib/Channels/UnionPay/*.h'
+    ss.vendored_libraries = 'lib/Channels/UnionPay/*.a'
+    ss.dependency 'SPSDKPay/Core'
+  end
 end
