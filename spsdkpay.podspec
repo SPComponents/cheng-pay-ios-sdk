@@ -35,17 +35,6 @@ Pod::Spec.new do |s|
     ss.dependency 'SPSDKPay/Core'
   end
 
-  s.subspec 'CBAlipay' do |ss|
-    ss.dependency 'SPSDKPay/Alipay'
-  end
-
-  s.subspec 'AlipayNoUTDID' do |ss|
-    ss.vendored_libraries = 'lib/Channels/Alipay/*.a'
-    ss.frameworks = 'CoreMotion', 'CoreTelephony'
-    ss.dependency 'SPSDKPay/Core'
-    ss.dependency 'SPSDKPayAlipaySDKNoUTDID', '~> 15.5'
-  end
-
   s.subspec 'Wx' do |ss|
     ss.source_files = 'lib/Channels/Wx/*.h'
     ss.vendored_libraries = 'lib/Channels/Wx/*.a'
