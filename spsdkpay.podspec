@@ -47,13 +47,13 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Wx' do |ss|
-    ss.public_header_files = 'lib/Channels/Wx/*.h'
+    ss.source_files = 'lib/Channels/Wx/*.h'
     ss.vendored_libraries = 'lib/Channels/Wx/*.a'
     ss.dependency 'SPSDKPay/Core'
   end
 
   s.subspec 'UnionPay' do |ss|
-    ss.public_header_files = 'lib/Channels/UnionPay/*.h'
+    ss.source_files = 'lib/Channels/UnionPay/*.h'
     ss.vendored_libraries = 'lib/Channels/UnionPay/*.a'
     ss.dependency 'SPSDKPay/Core'
   end
