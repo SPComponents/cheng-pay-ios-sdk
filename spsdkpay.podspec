@@ -29,9 +29,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'Alipay' do |ss|
     ss.vendored_libraries = 'lib/Channels/Alipay/*.a'
+    ss.vendored_frameworks = 'lib/Channels/Alipay/*.framework'
+    ss.resource = 'lib/Channels/Alipay/*.bundle'
     ss.frameworks = 'CoreMotion', 'CoreTelephony'
     ss.dependency 'SPSDKPay/Core'
-    ss.dependency 'PingppAlipaySDK', '~> 15.5'
   end
 
   s.subspec 'CBAlipay' do |ss|
