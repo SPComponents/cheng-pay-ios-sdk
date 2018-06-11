@@ -8,12 +8,11 @@ Pod::Spec.new do |s|
                    让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。
                    支持微信支付，支付宝支付。
                    DESC
-  s.homepage     = 'https://xxxxxx.com'
+  s.homepage     = 'https://github.com/SPComponents/cheng-pay-ios-sdk'
   s.license      = 'COMMERCIAL'
   s.author       = { 'Afon Weng' => 'lm.zou@rechengit.com' }
-  s.platform     = :ios, '7.0'
-  s.source       = { :http => "https://git.rechengit.com/front-end/cheng-pay-ios-sdk",
-                     :sha1 => "" }
+  s.platform     = :ios, '8.0'
+  s.source       = { :git => 'https://github.com/SPComponents/cheng-pay-ios-sdk.git', :tag => s.version }
   s.requires_arc = true
   s.default_subspec = 'Core', 'Alipay', 'Wx', 'UnionPay'
 
