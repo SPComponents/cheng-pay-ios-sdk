@@ -45,13 +45,13 @@ iOS SDK 要求 iOS 7.0 及以上版本
     例如：
 
     ```
-    pod 'SPSDKPay/Alipay', '~> 2.2.20'
-    pod 'SPSDKPay/UnionPay', '~> 2.2.20'
+    pod 'SPSDKPay/Alipay', '~> 1.0.2'
+    pod 'SPSDKPay/UnionPay', '~> 1.0.2'
    
     ```
     Super++ SDK UI 版
     ```
-    pod 'SPSDKPay/UI', '~> '2.2.20'
+    pod 'SPSDKPay/UI', '~> 1.0.2'
     ```
 
 2. 运行 `pod install`
