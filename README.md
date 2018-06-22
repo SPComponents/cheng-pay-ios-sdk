@@ -30,7 +30,7 @@ iOS SDK 要求 iOS 7.0 及以上版本
 1. 在 `Podfile` 添加
 
     ```
-    pod 'SPSDKPay', '~> 1.0.10'
+    pod 'SPSDKPay', '~> 1.0.2'
     ```
 
     默认会包含支付宝、微信。你也可以自己选择渠道。  

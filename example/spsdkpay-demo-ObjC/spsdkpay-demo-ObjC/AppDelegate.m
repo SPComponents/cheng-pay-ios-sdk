@@ -56,21 +56,19 @@
 //    [task resume];
     
     
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [SPSDKPay createPayment:@"partner=\"2088421584120261\"&out_trade_no=\"FI222222233356854180009006\"&subject=\"super-pay\"&body=\"super-pay\"&total_fee=\"1.00\"&notify_url=\"http://server-center:8480/fcw/server/ALIPAY10101-VS.htm\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&seller_id=\"2088421584120261\"&currency=\"AUD\"&forex_biz=\"FP\"&secondary_merchant_id=\"1000\"&secondary_merchant_name=\"SU IELTS\"&secondary_merchant_industry=\"8299\"&sign=\"EbEgZWBpTCqyhrK%2B7j4pvAkj7J06O37K2x3MM9SjM%2FNLSnVZxtJFM%2Bvg0x%2B91Gk0eP3YiyV09K7tCm2Rhm1CIMRYf6BaB3zNhNSCkJtU7jKGnzCJuwhqpxtr%2Fw3bzod%2FaUi2C4ATSCLIQWL43kH3sEvWvpGAhhdbKr0sc2eOmv8%3D\"&sign_type=\"RSA\""
- paymentChannel:SPSDKPaymentChannelAliPay viewController:[UIViewController new] appURLScheme:@"supaysdk" withCompletion:^(NSDictionary *result, SPSDKPayError *error) {
-            NSLog(@"completion block: %@", result);
-            if (error == nil && [result[@"status"] unsignedIntegerValue] == 200) {
-                NSLog(@"Success");
-            } else {
-                NSLog(@"Error: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
-            }
-            
-        }];
+        [SPSDKPay createPayment:@"{\"timestamp\":\"1529654402\",\"partnerid\":\"217980731\",\"instAmount\":\"0.01\",\"package\":\"Sign=WXPay\",\"noncestr\":\"2ed8cf97f66d44eebf651a73479914c7\",\"instOrderNo\":\"FI2222222333560000000001\",\"sign\":\"0A39FD6C7BE918B78E5C88A76046C985\",\"appid\":\"wx6c94cedf0b0fe9f9\",\"prepayid\":\"wx2216000238209569d7a5cd062447998263\"}"
+                 paymentChannel:SPSDKPaymentChannelWX viewController:[UIViewController new] appURLScheme:@"supaysdk" withCompletion:^(NSDictionary *result, SPSDKPayError *error) {
+                     NSLog(@"completion block: %@", result);
+                     if (error == nil && [result[@"status"] unsignedIntegerValue] == 200) {
+                         NSLog(@"Success");
+                     } else {
+                         NSLog(@"Error: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
+                     }
+                 }];
         [SPSDKPay setDebugMode:YES];
     });
-    
+
     return YES;
 }
 
